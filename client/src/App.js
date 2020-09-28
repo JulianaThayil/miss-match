@@ -1,14 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//pages
+import Home from './pages/Home.js';
+import LipstickMatcher from './pages/LipstickMatcher.js';
+import NotFound from './pages/NotFound.js';
 
 function App() {
   return (
-    <div class="bg-green-900">
-      <h1 class="text-white text-lg"> Hello world</h1>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4 mt-4">
-        Button
-      </button>
-
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/find/match" component={LipstickMatcher} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 
